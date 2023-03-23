@@ -56,10 +56,10 @@ export default defineConfig(
         preprocessorOptions: {
           less: {
             charset: false,
-            additionalData: '@import "@/style.less";',
+            additionalData: '@import "@/styles/index.less";',
           },
           scss: {
-            additionalData: '@import "@/style.scss";'
+            additionalData: '@import "@/styles/index.scss";'
           }
         },
       },
