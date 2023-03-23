@@ -6,7 +6,7 @@ import progress from 'vite-plugin-progress'
 import colors from 'picocolors'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import removeConsole from "vite-plugin-remove-console";
-
+import svgLoader from 'vite-svg-loader'
 
 import path from 'path'
 
@@ -28,6 +28,7 @@ export default defineConfig(
       },
       plugins: [
         vue(),
+        svgLoader(),
         eslintPlugin({
           include: ['src/**/*.js', 'src/*.js', 'src/**/*.ts', 'src/*.ts', 'src/**/*.vue', 'src/*.vue']
         }),

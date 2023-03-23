@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import VueSvg from '@/assets/vue.svg?component'
 console.log(`output->hello`)
 </script>
 
 <template>
   <h1>hello world</h1>
+  <VueSvg />
 </template>
 
 <style scoped lang="postcss">
