@@ -4,8 +4,9 @@ console.log(`output->hello`)
 </script>
 
 <template>
-  <h1>hello world</h1>
-  <VueSvg />
+  <div class="flex justify-center p-5">
+    <VueSvg />
+  </div>
 </template>
 
 <style scoped lang="postcss">
