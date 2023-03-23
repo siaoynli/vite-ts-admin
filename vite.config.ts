@@ -5,6 +5,9 @@ import viteCompression from 'vite-plugin-compression';
 import progress from 'vite-plugin-progress'
 import colors from 'picocolors'
 import { createHtmlPlugin } from 'vite-plugin-html'
+import removeConsole from "vite-plugin-remove-console";
+
+
 import path from 'path'
 
 // https://vitejs.dev/config/
@@ -42,7 +45,8 @@ export default defineConfig(
             '[:bar]'
           )} :percent`
         }),
-        viteCompression()
+        viteCompression(),
+        removeConsole()
       ],
       optimizeDeps: {
         include: []
