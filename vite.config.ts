@@ -16,7 +16,6 @@ export default defineConfig(
 
     const viteEnv = loadEnv(configEnv.mode, process.cwd())
     const srcPath = path.resolve(__dirname, 'src')
-    const outDir = path.resolve(__dirname, 'dist')
     return {
       server: {
         open: true
@@ -58,7 +57,6 @@ export default defineConfig(
           ignoreTryCatch: false
         },
         cssCodeSplit: false,
-        outDir: outDir,
         emptyOutDir: true,
         minify: 'esbuild',
         chunkSizeWarningLimit: 500,
