@@ -4,7 +4,6 @@ module.exports = {
   customSyntax: 'postcss-html',
   extends: ['stylelint-config-standard'],
   rules: {
-    'declaration-block-trailing-semicolon': null,
     'selector-class-pattern': null,
     'selector-pseudo-class-no-unknown': [
       true,
@@ -37,11 +36,8 @@ module.exports = {
     ],
     'no-empty-source': null,
     'named-grid-areas-no-invalid': null,
-    'unicode-bom': 'never',
     'no-descending-specificity': null,
     'font-family-no-missing-generic-family-keyword': null,
-    'declaration-colon-space-after': 'always-single-line',
-    'declaration-colon-space-before': 'never',
     'rule-empty-line-before': [
       'always',
       {
