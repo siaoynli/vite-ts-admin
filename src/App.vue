@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
 console.log(`output->hello`)
 </script>
 
 <template>
-  <HelloWorld />
+  <h1>hello world</h1>
 </template>
 
-<style scoped></style>
+<style scoped lang="postcss">
+h1 {
+  @apply text-2xl   text-indigo-800  p-5;
+}
+</style>
