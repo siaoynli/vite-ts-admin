@@ -10,12 +10,13 @@ import svgLoader from 'vite-svg-loader'
 
 import path from 'path'
 
-// https://vitejs.dev/config/
-export default defineConfig(
-  configEnv => {
 
-    const viteEnv = loadEnv(configEnv.mode, process.cwd())
+export default defineConfig(
+  ({ mode }) => {
+
+    const viteEnv = loadEnv(mode, process.cwd())
     const srcPath = path.resolve(__dirname, 'src')
+
     return {
       server: {
         open: true
@@ -51,6 +52,17 @@ export default defineConfig(
       optimizeDeps: {
         include: []
       },
+      css: {
+        preprocessorOptions: {
+          less: {
+            charset: false,
+            additionalData: '@import "@/style.less";',
+          },
+          scss: {
+            additionalData: '@import "@/style.scss";'
+          }
+        },
+      },
       build: {
         reportCompressedSize: false,
         sourcemap: false,
@@ -68,6 +80,10 @@ export default defineConfig(
             }
           }
         }
+      },
+      define: {
+        __INTLIFY_PROD_DEVTOOLS__: false,
+        __APP_INFO__: viteEnv.APP_ENV
       }
     }
   })

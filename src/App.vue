@@ -7,10 +7,18 @@ console.log(`output->hello`)
   <div class="flex justify-center p-5">
     <VueSvg />
   </div>
+  <h1>text</h1>
 </template>
 
-<style scoped lang="postcss">
+<style scoped lang="less">
+@primary-color: rgb(200, 16, 200);
+
 h1 {
-  @apply text-2xl   text-indigo-800  p-5;
+  color: @primary-color;
+  @apply text-2xl  p-5 cursor-pointer;
+
+  &:hover {
+    @apply bg-indigo-500;
+  }
 }
 </style>
