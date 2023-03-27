@@ -21,6 +21,7 @@ specifiers:
   less-loader: ^11.1.0
   lint-staged: ^13.2.0
   nprogress: ^0.2.0
+  picocolors: ^1.0.0
   pinia: ^2.0.33
   postcss: ^8.4.21
   postcss-html: ^1.5.0
@@ -77,6 +78,7 @@ devDependencies:
   less: registry.npmmirror.com/less/4.1.3
   less-loader: registry.npmmirror.com/less-loader/11.1.0_less@4.1.3
   lint-staged: registry.npmmirror.com/lint-staged/13.2.0
+  picocolors: registry.npmmirror.com/picocolors/1.0.0
   postcss: registry.npmmirror.com/postcss/8.4.21
   postcss-html: registry.npmmirror.com/postcss-html/1.5.0
   postcss-import: registry.npmmirror.com/postcss-import/15.1.0_postcss@8.4.21
