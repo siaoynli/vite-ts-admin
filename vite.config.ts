@@ -1,12 +1,18 @@
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig, loadEnv, splitVendorChunkPlugin, type PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
 import viteCompression from 'vite-plugin-compression';
 import progress from 'vite-plugin-progress'
 import colors from 'picocolors'
 import { createHtmlPlugin } from 'vite-plugin-html'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import removeConsole from "vite-plugin-remove-console";
-import svgLoader from 'vite-svg-loader'
+
+
+
+import {
+  createStyleImportPlugin
+} from 'vite-plugin-style-import'
 
 import path from 'path'
 
@@ -29,9 +35,13 @@ export default defineConfig(
       },
       plugins: [
         vue(),
-        svgLoader(),
         eslintPlugin({
           include: ['src/**/*.js', 'src/*.js', 'src/**/*.ts', 'src/*.ts', 'src/**/*.vue', 'src/*.vue']
+        }),
+        createSvgIconsPlugin({
+          iconDirs: [path.resolve(process.cwd(), 'src/icons')],
+          symbolId: 'icon-[dir]-[name]',
+          customDomId: '__svg__icons__dom__',
         }),
         createHtmlPlugin({
           minify: true,
@@ -46,8 +56,28 @@ export default defineConfig(
             '[:bar]'
           )} :percent`
         }),
+        createStyleImportPlugin({
+          resolves: [],
+          libs: [
+            {
+              libraryName: 'ant-design-vue',
+              esModule: true,
+              resolveStyle: (name) => {
+                return `ant-design-vue/es/${name}/style/index`
+              },
+            },
+          ],
+        }),
         viteCompression(),
-        removeConsole()
+        removeConsole(),
+        splitVendorChunkPlugin(),
+        // visualizer({
+        //   gzipSize: true,
+        //   brotliSize: true,
+        //   emitFile: false,
+        //   filename: 'stats/rollup-stats.html', /分析图生成的文件名
+        //   open: true //如果存在本地服务端口，将在打包后自动展示
+        // }),
       ],
       optimizeDeps: {
         include: []

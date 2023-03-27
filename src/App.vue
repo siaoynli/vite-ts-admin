@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import VueSvg from '@/assets/vue.svg?component'
 console.log(`output->hello`)
 </script>
 
 <template>
   <div class="flex justify-center p-5">
-    <VueSvg />
+    <svg-icon name="remix-home-line" />
   </div>
   <h1>text</h1>
 </template>
@@ -20,5 +19,9 @@ h1 {
   &:hover {
     @apply bg-indigo-500;
   }
+}
+
+.svg-icon {
+  color: blueviolet;
 }
 </style>
