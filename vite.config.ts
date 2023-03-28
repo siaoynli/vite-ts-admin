@@ -1,37 +1,12 @@
-import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig, loadEnv } from 'vite'
 
-
-import { createViteProxy, getProxyEnvConfig, viteDefine } from './build';
-
-import eslintPlugin from 'vite-plugin-eslint'
-import viteCompression from 'vite-plugin-compression';
-import progress from 'vite-plugin-progress'
-import colors from 'picocolors'
-import { createHtmlPlugin } from 'vite-plugin-html'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import removeConsole from "vite-plugin-remove-console";
-
-
-
-import Components from 'unplugin-vue-components/vite'
-import {
-  AntDesignVueResolver,
-} from 'unplugin-vue-components/resolvers'
-
-
-
-
-import path from 'path'
+import { createViteProxy, getProxyEnvConfig, viteDefine, setupVitePlugins, getRootPath, getSrcPath } from './build';
 
 
 export default defineConfig(
   ({ mode }) => {
-
     const viteEnv = loadEnv(mode, process.cwd()) as unknown as ImportMetaEnv;
-
     const isOpenProxy = viteEnv.VITE_HTTP_PROXY === true;
-    const srcPath = path.resolve(__dirname, 'src')
     return {
       server: {
         open: true,
@@ -39,47 +14,20 @@ export default defineConfig(
       },
       resolve: {
         alias: {
-          '~': path.resolve(__dirname),
-          '@': srcPath
+          '~': getRootPath(),
+          '@': getSrcPath()
         }
       },
-      plugins: [
-        vue(),
-        eslintPlugin({
-          include: ['src/**/*.js', 'src/*.js', 'src/**/*.ts', 'src/*.ts', 'src/**/*.vue', 'src/*.vue']
-        }),
-        createSvgIconsPlugin({
-          iconDirs: [path.resolve(process.cwd(), 'src/icons')],
-          symbolId: 'icon-[dir]-[name]',
-          customDomId: '__svg__icons__dom__',
-        }),
-        Components({
-          resolvers: [
-            AntDesignVueResolver({
-              importStyle: 'less',
-            }),
-          ],
-          dts: 'src/types/components.d.ts'  // 生成ts声明文件
-        }),
-        createHtmlPlugin({
-          minify: true,
-          inject: {
-            data: {
-              appName: viteEnv.VITE_APP_NAME
-            }
-          }
-        }),
-        progress({
-          format: `${colors.green(colors.bold('Bouilding'))} ${colors.cyan(
-            '[:bar]'
-          )} :percent`
-        }),
-        viteCompression(),
-        removeConsole(),
-        splitVendorChunkPlugin(),
-      ],
+      define: {
+        __INTLIFY_PROD_DEVTOOLS__: false,
+        __APP_INFO__: viteEnv.APP_ENV,
+        ...viteDefine
+      },
+      plugins: setupVitePlugins(viteEnv),
       optimizeDeps: {
-        include: []
+        include: [
+          // 'echarts',
+        ]
       },
       css: {
         preprocessorOptions: {
@@ -109,10 +57,7 @@ export default defineConfig(
             }
           }
         }
-      },
-      define: {
-        __INTLIFY_PROD_DEVTOOLS__: false,
-        __APP_INFO__: viteEnv.APP_ENV
       }
+
     }
   })
