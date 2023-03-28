@@ -10,10 +10,12 @@ module.exports = {
     'plugin:@typescript-eslint/recommended'
   ],
   overrides: [],
+  //修复报错 `Parsing error: ‘＞‘ expected.`
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    //修复报错 Parsing error: Unexpected token
     parser: '@typescript-eslint/parser'
   },
   plugins: ['vue', '@typescript-eslint'],
