@@ -36,8 +36,7 @@ const symbolId = computed(() => {
     </svg>
   </template>
   <template v-else>
-    <!-- todo -->
-    <Icon v-if="icon" :icon="icon" v-bind="bindAttrs" />
+    <!-- todo 组件图标引入 -->
   </template>
 </template>
 
