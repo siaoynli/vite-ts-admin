@@ -4,7 +4,7 @@ console.log(`output->hello`)
 
 <template>
   <div class="flex justify-center p-5">
-    <svg-icon name="remix-home-line" />
+    <svg-icon name="remix-Buildings-home-line" />
   </div>
   <h1>text</h1>
 </template>

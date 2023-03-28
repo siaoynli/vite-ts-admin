@@ -1,5 +1,9 @@
-import { defineConfig, loadEnv, splitVendorChunkPlugin, type PluginOption } from 'vite'
+import { defineConfig, loadEnv, splitVendorChunkPlugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
+
+
+import { createViteProxy, getProxyEnvConfig, viteDefine } from './build';
+
 import eslintPlugin from 'vite-plugin-eslint'
 import viteCompression from 'vite-plugin-compression';
 import progress from 'vite-plugin-progress'
@@ -10,9 +14,13 @@ import removeConsole from "vite-plugin-remove-console";
 
 
 
+import Components from 'unplugin-vue-components/vite'
 import {
-  createStyleImportPlugin
-} from 'vite-plugin-style-import'
+  AntDesignVueResolver,
+} from 'unplugin-vue-components/resolvers'
+
+
+
 
 import path from 'path'
 
@@ -20,12 +28,14 @@ import path from 'path'
 export default defineConfig(
   ({ mode }) => {
 
-    const viteEnv = loadEnv(mode, process.cwd())
-    const srcPath = path.resolve(__dirname, 'src')
+    const viteEnv = loadEnv(mode, process.cwd()) as unknown as ImportMetaEnv;
 
+    const isOpenProxy = viteEnv.VITE_HTTP_PROXY === true;
+    const srcPath = path.resolve(__dirname, 'src')
     return {
       server: {
-        open: true
+        open: true,
+        proxy: createViteProxy(isOpenProxy, getProxyEnvConfig(viteEnv))
       },
       resolve: {
         alias: {
@@ -43,6 +53,14 @@ export default defineConfig(
           symbolId: 'icon-[dir]-[name]',
           customDomId: '__svg__icons__dom__',
         }),
+        Components({
+          resolvers: [
+            AntDesignVueResolver({
+              importStyle: 'less',
+            }),
+          ],
+          dts: 'src/types/components.d.ts'  // 生成ts声明文件
+        }),
         createHtmlPlugin({
           minify: true,
           inject: {
@@ -56,28 +74,9 @@ export default defineConfig(
             '[:bar]'
           )} :percent`
         }),
-        createStyleImportPlugin({
-          resolves: [],
-          libs: [
-            {
-              libraryName: 'ant-design-vue',
-              esModule: true,
-              resolveStyle: (name) => {
-                return `ant-design-vue/es/${name}/style/index`
-              },
-            },
-          ],
-        }),
         viteCompression(),
         removeConsole(),
         splitVendorChunkPlugin(),
-        // visualizer({
-        //   gzipSize: true,
-        //   brotliSize: true,
-        //   emitFile: false,
-        //   filename: 'stats/rollup-stats.html', /分析图生成的文件名
-        //   open: true //如果存在本地服务端口，将在打包后自动展示
-        // }),
       ],
       optimizeDeps: {
         include: []
