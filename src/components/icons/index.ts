@@ -1,4 +1,4 @@
-import { App } from 'vue';
+import { App } from 'vue'
 import 'virtual:svg-icons-register'
 
 export default {
@@ -6,5 +6,3 @@ export default {
     app.component('svg-icon', import('./SvgIcon.vue'))
   }
 }
-
-

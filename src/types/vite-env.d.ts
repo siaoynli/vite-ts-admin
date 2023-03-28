@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 
-declare module "*.vue" {
-  import { ComponentOptions } from "vue"
+declare module '*.vue' {
+  import { ComponentOptions } from 'vue'
   const component: ComponentOptions
   export default component
 }
@@ -17,14 +17,13 @@ interface ImportMeta {
   readonly env: ImportMetaEnv
 }
 
-type ServiceEnvType = 'dev' | 'prod';
+type ServiceEnvType = 'dev' | 'prod'
 
 /** 后台服务的环境配置 */
 interface ServiceEnvConfig {
   /** 请求地址 */
-  url: string;
+  url: string
 }
-
 
 interface ServiceEnvConfigWithProxyPattern extends ServiceEnvConfig {
   /**
@@ -33,5 +32,5 @@ interface ServiceEnvConfigWithProxyPattern extends ServiceEnvConfig {
    * - 和后端请求地址的前缀无关
    * - 有多个后端请求实例时，需要创建不同的值
    */
-  proxyPattern: '/proxy-pattern';
+  proxyPattern: '/proxy-pattern'
 }
