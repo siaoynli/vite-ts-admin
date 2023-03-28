@@ -27,7 +27,7 @@ const symbolId = computed(() => {
   return `#${localIconPrefix}-${props.type}`
 })
 
-const prefixCls = 'svg-icon'
+const prefixClass = 'svg-icon'
 
 const innerStyle = computed(() => {
   const styles: CSSProperties = (bindAttr.style as CSSProperties) || {}
@@ -39,8 +39,8 @@ const innerStyle = computed(() => {
   }
   return styles
 })
-const cls = computed(() => [
-  prefixCls,
+const className = computed(() => [
+  prefixClass,
   props.type?.toLocaleLowerCase(),
   bindAttr.class as string
 ])
@@ -51,7 +51,7 @@ const cls = computed(() => [
     aria-hidden="true"
     width="1em"
     height="1em"
-    :class="cls"
+    :class="className"
     :style="innerStyle"
     fill="currentColor"
   >

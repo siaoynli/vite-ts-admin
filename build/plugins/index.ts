@@ -15,6 +15,8 @@ import svgIcon from './svgIcon';
 import rollup from './rollup';
 
 
+const isDev = import.meta.env.DEV
+
 export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | PluginOption[])[] {
   const plugins = [
     vue(),
@@ -30,8 +32,9 @@ export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | Plugin
       )} :percent`
     }),
     splitVendorChunkPlugin(),
-    rollup()
   ];
-
+  if (isDev) {
+    plugins.push(rollup());
+  }
   return plugins;
 }

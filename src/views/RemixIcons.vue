@@ -8,7 +8,7 @@ const svgs = allSvgFiles().map((item) => {
 </script>
 
 <template>
-  <svg-icon v-for="(svg, index) in svgs" :key="index" :local-icon="svg" />
+  <svg-icon v-for="(svg, index) in svgs" :key="index" :type="svg" />
 </template>
 
 <style scoped lang="scss"></style>
