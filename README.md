@@ -9,3 +9,4 @@ https://remixicon.com/
 ## todo
 
 [x] 增加图标
+[x] 重构 vite.config.ts

@@ -1,5 +1,4 @@
 import { defineConfig, loadEnv } from 'vite'
-
 import { createViteProxy, getProxyEnvConfig, viteDefine, setupVitePlugins, getRootPath, getSrcPath } from './build';
 
 
