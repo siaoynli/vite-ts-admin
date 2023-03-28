@@ -16,7 +16,7 @@
       "@/*": ["src/*"]
     },
     "noEmit": true,
-    "types": ["vite-plugin-svg-icons/client"]
+    "types": ["vite-plugin-svg-icons/client", "node", "webpack-env"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -4,8 +4,7 @@ import { getDirPath } from '../utils'
 
 export default () => {
   return createSvgIconsPlugin({
-    iconDirs: [getDirPath('src/icons')],
-    symbolId: 'icon-[dir]-[name]',
-    customDomId: '__svg__icons__dom__',
+    iconDirs: [getDirPath('src/assets/icons')],
+    symbolId: 'icon-[dir]-[name]'
   })
 }

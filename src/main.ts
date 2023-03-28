@@ -2,10 +2,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 
-import Icons from "@/icons/index"
+import SvgIcon from "@/components/icons"
 
 const app = createApp(App);
 
-app.use(Icons);
+app.use(SvgIcon);
 
 app.mount('#app')

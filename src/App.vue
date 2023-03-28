@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import RemixIcons from '@/views/RemixIcons.vue'
 console.log(`output->hello`)
 </script>
 
 <template>
   <div class="flex justify-center p-5">
-    <svg-icon name="remix-Buildings-home-line" />
+    <svg-icon local-icon="remix-Buildings-home-line" />
+    <remix-icons />
   </div>
   <h1>text</h1>
 </template>
@@ -19,9 +21,5 @@ h1 {
   &:hover {
     @apply bg-indigo-500;
   }
-}
-
-.svg-icon {
-  color: blueviolet;
 }
 </style>
