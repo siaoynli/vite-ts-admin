@@ -1,8 +1,10 @@
 import { App } from 'vue'
 import 'virtual:svg-icons-register'
 
+import SvgIcon from "./SvgIcon.vue"
+
 export default {
   install(app: App<Element>) {
-    app.component('svg-icon', import('./SvgIcon.vue'))
+    app.component('svg-icon', SvgIcon)
   }
 }

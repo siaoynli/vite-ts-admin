@@ -1,36 +1,24 @@
-<script lang="ts">
-export default {
-  name: 'SvgIcon',
-  inheritAttrs: false
-}
-</script>
-
 <script setup lang="ts">
 import { computed, CSSProperties, useAttrs } from 'vue'
 import { isNumber } from '@/utils/is'
-//可以直接 v-model 绑定
-const bindAttr = useAttrs()
+
+const attrs = useAttrs()
 
 interface Props {
   type?: string
-  size?: string
+  size?: number | string
   rotate?: number
+  spin?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   size: '22'
 })
 
-const symbolId = computed(() => {
-  const { VITE_ICON_LOCAL_PREFIX: prefix } = import.meta.env
-  const localIconPrefix = prefix || 'icon'
-  return `#${localIconPrefix}-${props.type}`
-})
-
 const prefixCls = 'svg-icon'
 
 const innerStyle = computed(() => {
-  const styles: CSSProperties = (bindAttr.style as CSSProperties) || {}
+  const styles: CSSProperties = (attrs.style as CSSProperties) || {}
   if (props.size) {
     styles.fontSize = isNumber(props.size) ? `${props.size}px` : props.size
   }
@@ -39,10 +27,13 @@ const innerStyle = computed(() => {
   }
   return styles
 })
+
 const cls = computed(() => [
   prefixCls,
-  props.type?.toLocaleLowerCase(),
-  bindAttr.class as string
+  {
+    [`${prefixCls}-loading`]: props.spin
+  },
+  props.type
 ])
 </script>
 
@@ -55,7 +46,7 @@ const cls = computed(() => [
     :style="innerStyle"
     fill="currentColor"
   >
-    <use :xlink:href="symbolId" />
+    <slot />
   </svg>
 </template>
 
