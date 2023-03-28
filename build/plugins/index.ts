@@ -12,6 +12,7 @@ import eslint from "./eslint"
 import html from './html';
 import unplugin from './unplugin';
 import svgIcon from './svgIcon';
+import rollup from './rollup';
 
 
 export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | PluginOption[])[] {
@@ -28,7 +29,8 @@ export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | Plugin
         '[:bar]'
       )} :percent`
     }),
-    splitVendorChunkPlugin()
+    splitVendorChunkPlugin(),
+    rollup()
   ];
 
   return plugins;

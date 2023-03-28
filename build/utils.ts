@@ -2,15 +2,17 @@
 import path from 'path'
 
 export function getRootPath() {
-  return path.resolve(__dirname)
+  return path.resolve(process.cwd());
 }
 
 
 export function getSrcPath() {
-  return path.resolve(__dirname, 'src')
+  const rootPath = getRootPath();
+  return `${rootPath}/src`;
 }
 
 
-export function getDirPath(dir = "src") {
-  return path.resolve(__dirname, dir)
+export function getDirPath(dirName = "src") {
+  const rootPath = getRootPath();
+  return `${rootPath}/${dirName}`;
 }
