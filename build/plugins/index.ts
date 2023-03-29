@@ -15,7 +15,7 @@ import svgIcon from './svgIcon';
 import rollup from './rollup';
 
 
-const isDev = import.meta.env.DEV
+
 
 export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | PluginOption[])[] {
   const plugins = [
@@ -33,7 +33,7 @@ export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | Plugin
     }),
     splitVendorChunkPlugin(),
   ];
-  if (isDev) {
+  if (viteEnv.DEV) {
     plugins.push(rollup());
   }
   return plugins;

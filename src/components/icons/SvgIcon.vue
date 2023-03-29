@@ -6,57 +6,53 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { computed, CSSProperties, useAttrs } from 'vue'
+import { computed, CSSProperties } from 'vue'
 import { isNumber } from '@/utils/is'
-//可以直接 v-model 绑定
-const bindAttr = useAttrs()
 
 interface Props {
   type?: string
-  size?: string
-  rotate?: number
+  size?: number | string
+  color?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  size: '22'
-})
-
-const symbolId = computed(() => {
-  const { VITE_ICON_LOCAL_PREFIX: prefix } = import.meta.env
-  const localIconPrefix = prefix || 'icon'
-  return `#${localIconPrefix}-${props.type}`
-})
+const props = defineProps<Props>()
 
 const prefixClass = 'svg-icon'
 
 const innerStyle = computed(() => {
-  const styles: CSSProperties = (bindAttr.style as CSSProperties) || {}
+  const styles: CSSProperties = {}
   if (props.size) {
-    styles.fontSize = isNumber(props.size) ? `${props.size}px` : props.size
+    if (isNumber(props.size)) {
+      styles.fontSize = `${props.size}px`
+    } else {
+      styles.fontSize = `${parseInt(props.size)}px`
+    }
   }
-  if (props.rotate) {
-    styles.transform = `rotate(${props.rotate}deg)`
+  if (props.color) {
+    styles.color = props.color
   }
   return styles
 })
-const className = computed(() => [
-  prefixClass,
-  props.type?.toLocaleLowerCase(),
-  bindAttr.class as string
-])
+
+const className = computed(() => [prefixClass, props.type?.toLocaleLowerCase()])
 </script>
 
 <template>
-  <svg
-    aria-hidden="true"
-    width="1em"
-    height="1em"
-    :class="className"
-    :style="innerStyle"
-    fill="currentColor"
-  >
-    <use :xlink:href="symbolId" />
-  </svg>
+  <i :class="className" :style="innerStyle" v-bind="$attrs">
+    <slot />
+  </i>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.svg-icon {
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  font-size: inherit;
+}
+</style>

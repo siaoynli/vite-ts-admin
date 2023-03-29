@@ -1,9 +1,12 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import App from './views/App.vue'
 
-import SvgIcon from '@/components/icons'
+import * as RemixIcons from 'remix-icons-vue'
 
 const app = createApp(App)
 
-app.use(SvgIcon)
+for (const [key, component] of Object.entries(RemixIcons)) {
+  app.component(key, component)
+}
+
 app.mount('#app')
