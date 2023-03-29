@@ -17,4 +17,6 @@ import Buttons from '@/views/buttons.vue'
 import SettingDrawer from '@/layouts/common/setting-drawer/index.vue'
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+//
+</style>

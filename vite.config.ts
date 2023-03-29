@@ -35,7 +35,7 @@ export default defineConfig(
           //   additionalData: '@import "@/styles/index.less";',
           // },
           scss: {
-            additionalData: `@use "@/styles/index.scss" as *;`
+            additionalData: '@import "@/styles/index.scss";'
           }
         },
       },

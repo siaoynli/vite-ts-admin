@@ -68,10 +68,5 @@ const handleLoading = () => {
 </script>
 
 <style scoped lang="scss">
-// $nav-color: #f90;
-// .nav {
-//   $width: 100px;
-//   width: $width;
-//   color: $nav-color;
-// }
+//
 </style>
