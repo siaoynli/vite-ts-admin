@@ -1,7 +1,7 @@
-export const files: Record<string, string> = import.meta.glob(
-  '@/assets/svg-icons/*.svg',
-  { eager: true, import: 'default' }
-)
+export const files: Record<string, string> = import.meta.glob('@/assets/svg-icons/*.svg', {
+  eager: true,
+  import: 'default'
+})
 
 export function allSvgFiles() {
   const name: string[] = []

@@ -1,5 +1,7 @@
 <template>
-  <div class="fixed right-2 bottom-[50%]" v-if="showButton">
+  <div
+    class="fixed right-2 bottom-[50%]"
+    v-if="showButton">
     <drawer-button />
   </div>
 </template>
@@ -11,7 +13,5 @@ const showButton = import.meta.env.DEV
 </script>
 
 <style scoped lang="scss">
-.a {
-  position: relative;
-}
+//
 </style>

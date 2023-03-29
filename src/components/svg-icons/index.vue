@@ -1,5 +1,8 @@
 <template>
-  <i :class="className" :style="innerStyle" v-bind="$attrs">
+  <i
+    :class="className"
+    :style="innerStyle"
+    v-bind="$attrs">
     <slot />
   </i>
 </template>
@@ -52,7 +55,7 @@ const className = computed(() => [prefixClass, props.type?.toLocaleLowerCase()])
   justify-content: center;
   align-items: center;
   position: relative;
-  fill: currentColor;
+  fill: currentcolor;
   font-size: inherit;
 }
 </style>

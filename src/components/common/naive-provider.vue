@@ -11,12 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  NLoadingBarProvider,
-  NDialogProvider,
-  NMessageProvider,
-  NNotificationProvider
-} from 'naive-ui'
+import { NLoadingBarProvider, NDialogProvider, NMessageProvider, NNotificationProvider } from 'naive-ui'
 </script>
 
 <style scoped lang="scss"></style>

@@ -2,13 +2,21 @@
   <div>
     <div class="nav">anv</div>
     <n-space>
-      <n-button @click="handleOpenDialog" class="m-2 w-[500px]"
-        >dialog</n-button
-      >
-      <n-button type="tertiary" @click="notify('info')">
+      <n-button
+        @click="handleOpenDialog"
+        class="m-2 w-[500px]">
+        dialog
+      </n-button>
+      <n-button
+        type="tertiary"
+        @click="notify('info')">
         notification
       </n-button>
-      <n-button type="primary" @click="handleLoading"> loading </n-button>
+      <n-button
+        type="primary"
+        @click="handleLoading">
+        loading
+      </n-button>
       <n-button type="info"> Info </n-button>
       <n-button type="success"> Success </n-button>
       <n-button type="warning">
@@ -68,5 +76,7 @@ const handleLoading = () => {
 </script>
 
 <style scoped lang="scss">
-//
+.nav {
+  @apply bg-indigo-500;
+}
 </style>
