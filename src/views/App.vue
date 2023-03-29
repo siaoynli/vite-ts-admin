@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { NIcon } from 'naive-ui'
 import { AncientGateFill } from 'remix-icons-vue'
-console.log(`output->hello`)
+import { isNumber, isArray } from '@/utils/is'
+
+console.log(`output->`, isNumber('aaa'))
+console.log(`output2->`, isArray(['aaa']))
 </script>
 
 <template>
