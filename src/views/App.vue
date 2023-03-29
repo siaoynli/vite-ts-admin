@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { NIcon } from 'naive-ui'
+import { AncientGateFill } from 'remix-icons-vue'
 console.log(`output->hello`)
 </script>
 
@@ -9,18 +10,6 @@ console.log(`output->hello`)
       <AncientGateFill />
     </n-icon>
   </div>
-  <h1>text</h1>
 </template>
 
-<style scoped lang="less">
-@primary-color: rgb(200, 16, 200);
-
-h1 {
-  color: @primary-color;
-  @apply text-2xl  p-5 cursor-pointer;
-
-  &:hover {
-    @apply bg-indigo-500;
-  }
-}
-</style>
+<style scoped lang="less"></style>
