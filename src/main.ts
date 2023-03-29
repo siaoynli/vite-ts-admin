@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+
+import '@/styles/tailwind.css'
 import SvgIconVue from '@/components/svg-icons/'
-import naive from 'naive-ui'
+import App from './App.vue'
 const app = createApp(App)
 
 app.use(SvgIconVue)
-app.use(naive)
 
 app.mount('#app')

@@ -77,6 +77,6 @@ const handleLoading = () => {
 
 <style scoped lang="scss">
 .nav {
-  @apply bg-indigo-500;
+  @apply text-orange-500;
 }
 </style>
