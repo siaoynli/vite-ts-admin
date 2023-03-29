@@ -1,7 +1,10 @@
 <template>
   <div>
+    <div class="nav">anv</div>
     <n-space>
-      <n-button @click="handleOpenDialog">dialog</n-button>
+      <n-button @click="handleOpenDialog" class="m-2 w-[500px]"
+        >dialog</n-button
+      >
       <n-button type="tertiary" @click="notify('info')">
         notification
       </n-button>
@@ -64,4 +67,11 @@ const handleLoading = () => {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+// $nav-color: #f90;
+// .nav {
+//   $width: 100px;
+//   width: $width;
+//   color: $nav-color;
+// }
+</style>

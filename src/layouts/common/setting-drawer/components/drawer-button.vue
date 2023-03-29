@@ -1,5 +1,5 @@
 <template>
-  <n-button type="primary" class="button">
+  <n-button type="primary">
     <n-icon v-if="isVisible">
       <Settings />
     </n-icon>

@@ -30,12 +30,12 @@ export default defineConfig(
       },
       css: {
         preprocessorOptions: {
-          less: {
-            charset: false,
-            additionalData: '@import "@/styles/index.less";',
-          },
+          // less: {
+          //   charset: false,
+          //   additionalData: '@import "@/styles/index.less";',
+          // },
           scss: {
-            additionalData: '@import "@/styles/index.scss";'
+            additionalData: `@use "@/styles/index.scss" as *;`
           }
         },
       },
