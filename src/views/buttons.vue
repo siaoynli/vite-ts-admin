@@ -1,3 +1,21 @@
+<template>
+  <div>
+    <n-space>
+      <n-button @click="handleOpenDialog">dialog</n-button>
+      <n-button type="tertiary" @click="notify('info')">
+        notification
+      </n-button>
+      <n-button type="primary" @click="handleLoading"> loading </n-button>
+      <n-button type="info"> Info </n-button>
+      <n-button type="success"> Success </n-button>
+      <n-button type="warning">
+        <n-icon><Settings /></n-icon>
+      </n-button>
+      <n-button type="error"> Error </n-button>
+    </n-space>
+  </div>
+</template>
+
 <script setup lang="ts">
 import {
   NSpace,
@@ -6,8 +24,11 @@ import {
   useDialog,
   useNotification,
   NotificationType,
-  useLoadingBar
+  useLoadingBar,
+  NIcon
 } from 'naive-ui'
+
+import { Settings } from '@vicons/ionicons5'
 
 const message = useMessage()
 const dialog = useDialog()
@@ -42,21 +63,5 @@ const handleLoading = () => {
   loadingBar.start()
 }
 </script>
-
-<template>
-  <div>
-    <n-space>
-      <n-button @click="handleOpenDialog">dialog</n-button>
-      <n-button type="tertiary" @click="notify('info')">
-        notification
-      </n-button>
-      <n-button type="primary" @click="handleLoading"> loading </n-button>
-      <n-button type="info"> Info </n-button>
-      <n-button type="success"> Success </n-button>
-      <n-button type="warning"> Warning </n-button>
-      <n-button type="error"> Error </n-button>
-    </n-space>
-  </div>
-</template>
 
 <style scoped lang="scss"></style>

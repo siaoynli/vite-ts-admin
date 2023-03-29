@@ -1,3 +1,9 @@
+<template>
+  <i :class="className" :style="innerStyle" v-bind="$attrs">
+    <slot />
+  </i>
+</template>
+
 <script lang="ts">
 export default {
   name: 'SvgIcon',
@@ -36,12 +42,6 @@ const innerStyle = computed(() => {
 
 const className = computed(() => [prefixClass, props.type?.toLocaleLowerCase()])
 </script>
-
-<template>
-  <i :class="className" :style="innerStyle" v-bind="$attrs">
-    <slot />
-  </i>
-</template>
 
 <style scoped lang="scss">
 .svg-icon {

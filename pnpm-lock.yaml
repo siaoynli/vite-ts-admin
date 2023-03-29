@@ -5,6 +5,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.4.4
   '@typescript-eslint/eslint-plugin': ^5.56.0
   '@typescript-eslint/parser': ^5.56.0
+  '@vicons/ionicons5': ^0.12.0
   '@vitejs/plugin-vue': ^4.1.0
   '@vue/eslint-config-prettier': ^7.1.0
   '@vueuse/core': ^9.13.0
@@ -32,7 +33,6 @@ specifiers:
   postcss-nesting: ^11.2.1
   postcss-scss: ^4.0.6
   prettier: ^2.8.6
-  remix-icons-vue: ^1.0.0
   rimraf: ^4.4.1
   rollup-plugin-visualizer: ^5.9.0
   sass: ^1.59.3
@@ -69,6 +69,7 @@ devDependencies:
   '@commitlint/config-conventional': registry.npmmirror.com/@commitlint/config-conventional/17.4.4
   '@typescript-eslint/eslint-plugin': registry.npmmirror.com/@typescript-eslint/eslint-plugin/5.56.0_iskin7c6dxqunwflhstekcjqmq
   '@typescript-eslint/parser': registry.npmmirror.com/@typescript-eslint/parser/5.56.0_vgl77cfdswitgr47lm5swmv43m
+  '@vicons/ionicons5': 0.12.0
   '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/4.1.0_vite@4.2.1+vue@3.2.47
   '@vue/eslint-config-prettier': registry.npmmirror.com/@vue/eslint-config-prettier/7.1.0_bpfktk52wn6m2x6u3idob4lxru
   '@vueuse/core': 9.13.0_vue@3.2.47
@@ -93,7 +94,6 @@ devDependencies:
   postcss-nesting: registry.npmmirror.com/postcss-nesting/11.2.1_postcss@8.4.21
   postcss-scss: registry.npmmirror.com/postcss-scss/4.0.6_postcss@8.4.21
   prettier: registry.npmmirror.com/prettier/2.8.6
-  remix-icons-vue: 1.0.0_vue@3.2.47
   rimraf: registry.npmmirror.com/rimraf/4.4.1
   rollup-plugin-visualizer: registry.npmmirror.com/rollup-plugin-visualizer/5.9.0
   sass: registry.npmmirror.com/sass/1.59.3
@@ -358,6 +358,10 @@ packages:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
     dev: true
 
+  /@vicons/ionicons5/0.12.0:
+    resolution: {integrity: sha512-Iy1EUVRpX0WWxeu1VIReR1zsZLMc4fqpt223czR+Rpnrwu7pt46nbnC2ycO7ItI/uqDLJxnbcMC7FujKs9IfFA==}
+    dev: true
+
   /@vueuse/core/9.13.0_vue@3.2.47:
     resolution: {integrity: sha512-pujnclbeHWxxPRqXWmdkKV5OX4Wk4YeK7wusHqRwU0Q7EFusHoqNA/aPhB6KCh9hEqJkLAJo7bb0Lh9b+OIVzw==}
     dependencies:
@@ -513,14 +517,6 @@ packages:
       - supports-color
     dev: true
     optional: true
-
-  /remix-icons-vue/1.0.0_vue@3.2.47:
-    resolution: {integrity: sha512-YtDbZmvrZ+IKjH+vVByI160BbGFi/OctvsQ/D1Xcugm7XvPXpAZilnYTmZpaGnNgVpyLnwNX26Stytm8l2jRTg==}
-    peerDependencies:
-      vue: ^3.2.0
-    dependencies:
-      vue: registry.npmmirror.com/vue/3.2.47
-    dev: true
 
   /seemly/0.3.6:
     resolution: {integrity: sha512-lEV5VB8BUKTo/AfktXJcy+JeXns26ylbMkIUco8CYREsQijuz4mrXres2Q+vMLdwkuLxJdIPQ8IlCIxLYm71Yw==}
