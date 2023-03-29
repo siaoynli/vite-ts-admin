@@ -1,5 +1,5 @@
 export const files: Record<string, string> = import.meta.glob(
-  '@/assets/icons/remix/*.svg',
+  '@/assets/svg-icons/*.svg',
   { eager: true, import: 'default' }
 )
 

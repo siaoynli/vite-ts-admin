@@ -7,7 +7,7 @@ export default {
 
 <script setup lang="ts">
 import { computed, CSSProperties } from 'vue'
-import { isNumber } from '@/utils/is'
+import { isNumber } from '@/utils/common/is'
 
 interface Props {
   type?: string
