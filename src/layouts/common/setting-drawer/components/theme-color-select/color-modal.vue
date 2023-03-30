@@ -5,14 +5,14 @@
     class="w-[640px] h-[480px]"
     :z-index="10001"
     @close="$emit('close')">
-    <div class="flex justify-center">
+    <div class="flex justify-center pb-2">
       <n-gradient-text
         type="primary"
         :size="24">
         中国传统颜色
       </n-gradient-text>
     </div>
-    <n-tabs>
+    <n-tabs justify-content="space-between">
       <n-tab-pane
         v-for="item in traditionColors"
         :key="item.label"

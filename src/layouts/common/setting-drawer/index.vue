@@ -1,12 +1,15 @@
 <template>
+  <!-- 使用 :show,closable 显示的图标点击不会生效 -->
   <n-drawer
-    :show="app.settingDrawerVisible"
+    v-model:show="app.settingDrawerVisible"
     :width="300"
     display-directive="show"
     :placement="placement"
+    @esc="app.closeSettingDrawer"
     @mask-click="app.closeSettingDrawer">
     <n-drawer-content
       title="主题配置"
+      closable
       :native-scrollbar="false">
       <dark-mode />
       <theme-color-select />
