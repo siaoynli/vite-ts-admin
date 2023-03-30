@@ -1,5 +1,8 @@
 <template>
-  <n-button type="primary">
+  <n-button
+    type="primary"
+    class="fixed right-2 bottom-[50%] z-[1000]"
+    @click="handleSettingDrawerVisible">
     <n-icon v-if="isVisible">
       <Settings />
     </n-icon>
@@ -13,7 +16,12 @@
 import { ref } from 'vue'
 import { NButton, NIcon } from 'naive-ui'
 import { Settings, Close } from '@vicons/ionicons5'
+
 const isVisible = ref(true)
+
+const handleSettingDrawerVisible = () => {
+  isVisible.value = !isVisible.value
+}
 </script>
 
 <style scoped lang="scss"></style>
