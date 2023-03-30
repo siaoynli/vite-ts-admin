@@ -1,20 +1,14 @@
-import { nextTick } from 'vue';
+// import { nextTick } from 'vue';
 import { defineStore } from 'pinia';
-
 interface AppState {
   /** 项目配置的抽屉可见状态 */
   settingDrawerVisible: boolean;
 
 }
 
-
-
-
 export const useAppStore = defineStore('app-store', {
   state: (): AppState => ({
-
     settingDrawerVisible: false,
-
   }),
 
   actions: {
