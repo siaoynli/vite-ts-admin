@@ -2,8 +2,10 @@
   <div
     class="color-checkbox justify-center items-center"
     :style="{ backgroundColor: color }">
-    <n-icon v-if="checked">
-      <CheckmarkOutline :class="[iconClass, isWhite ? 'text-gray-700' : 'text-white']" />
+    <n-icon
+      v-if="checked"
+      :class="[iconClass, isWhite ? 'text-gray-700' : 'text-white']">
+      <CheckmarkOutline />
     </n-icon>
   </div>
 </template>
