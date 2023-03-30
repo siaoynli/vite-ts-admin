@@ -9,11 +9,14 @@ export function subscribeThemeStore() {
   const osTheme = useOsTheme()
   const scope = effectScope()
 
+  const { addDarkClass, removeDarkClass } = handleCssDarkMode();
+
   scope.run(() => {
     // 监听主题颜色
     watch(
       () => theme.themeColor,
       newValue => {
+        //todo存储
         console.log(`output->主题颜色`, newValue)
       },
       { immediate: true }
@@ -33,9 +36,9 @@ export function subscribeThemeStore() {
       () => theme.darkMode,
       newValue => {
         if (newValue) {
-          console.log(`output->切换到暗黑模式`)
+          addDarkClass();
         } else {
-          console.log(`output->切换到初始模式`)
+          removeDarkClass();
         }
       },
       {
@@ -58,4 +61,18 @@ export function subscribeThemeStore() {
     scope.stop()
   })
 
+}
+
+function handleCssDarkMode() {
+  const DARK_CLASS = 'dark';
+  function addDarkClass() {
+    document.documentElement.classList.add(DARK_CLASS);
+  }
+  function removeDarkClass() {
+    document.documentElement.classList.remove(DARK_CLASS);
+  }
+  return {
+    addDarkClass,
+    removeDarkClass
+  };
 }
