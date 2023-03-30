@@ -3,7 +3,7 @@ import { useOsTheme } from 'naive-ui'
 
 import { useThemeStore } from '../modules'
 
-export function subscribeThemeStore() {
+export default function subscribeThemeStore() {
 
   const theme = useThemeStore()
   const osTheme = useOsTheme()

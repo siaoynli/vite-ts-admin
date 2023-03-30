@@ -1,1 +1,5 @@
-export * from "./theme"
+import subscribeThemeStore from "./theme"
+
+export {
+  subscribeThemeStore
+}

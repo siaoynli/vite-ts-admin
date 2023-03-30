@@ -25,24 +25,25 @@
     <n-button
       :block="true"
       type="default"
-      @click="() => (visible = true)"
+      @click="openModal"
       >更多颜色</n-button
     >
   </n-space>
   <color-modal
     :visible="visible"
-    @close="() => (visible = false)"></color-modal>
+    @close="closeModal"></color-modal>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { NDivider, NGrid, NGridItem, NSpace, NColorPicker, NButton } from 'naive-ui'
 import ColorCheckbox from './color-checkbox.vue'
 import ColorModal from './color-modal.vue'
 import { useThemeStore } from '@/store'
-const theme = useThemeStore()
 
-const visible = ref(false)
+import { useBoolean } from '@/hooks'
+
+const { bool: visible, setTrue: openModal, setFalse: closeModal } = useBoolean(false)
+const theme = useThemeStore()
 </script>
 
 <style scoped lang="scss"></style>
