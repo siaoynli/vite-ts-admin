@@ -3,7 +3,6 @@
     :show="app.settingDrawerVisible"
     :width="300"
     display-directive="show"
-    :z-index="1000"
     :placement="placement"
     @mask-click="app.closeSettingDrawer">
     <n-drawer-content
