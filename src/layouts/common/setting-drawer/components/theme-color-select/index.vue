@@ -5,13 +5,13 @@
     :x-gap="8"
     :y-gap="12">
     <n-grid-item
-      v-for="color in themeSetting.themeColorList"
+      v-for="color in theme.themeColorList"
       :key="color"
       class="flex-x-center">
       <color-checkbox
         :color="color"
-        :checked="color === themeColor"
-        @click="setThemeColor(color)" />
+        :checked="color === theme.themeColor"
+        @click="theme.setThemeColor(color)" />
     </n-grid-item>
   </n-grid>
   <n-space
@@ -19,7 +19,9 @@
     class="mt-5">
     <n-color-picker
       :modes="['hex']"
-      :value="themeColor" />
+      :show-alpha="false"
+      :value="theme.themeColor"
+      @update:value="theme.setThemeColor" />
     <n-button
       :block="true"
       type="default"
@@ -29,16 +31,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { NDivider, NGrid, NGridItem, NSpace, NColorPicker, NButton } from 'naive-ui'
 import ColorCheckbox from './color-checkbox.vue'
-import { themeSetting } from '@/settings/theme'
-
-const themeColor = ref(themeSetting.themeColor)
-
-const setThemeColor = (color: string) => {
-  themeColor.value = color
-}
+import { useThemeStore } from '@/store'
+const theme = useThemeStore()
 </script>
 
 <style scoped lang="scss"></style>

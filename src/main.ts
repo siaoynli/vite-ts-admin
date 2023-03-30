@@ -1,10 +1,17 @@
 import { createApp } from 'vue'
-
-import '@/styles/tailwind.css'
-import SvgIconVue from '@/components/svg-icons/'
 import App from './App.vue'
-const app = createApp(App)
+import '@/styles/tailwind.css'
 
-app.use(SvgIconVue)
 
-app.mount('#app')
+import { setupStore } from './store'
+
+function setupApp() {
+  const app = createApp(App)
+  setupStore(app)
+
+  app.mount('#app')
+}
+
+setupApp()
+
+

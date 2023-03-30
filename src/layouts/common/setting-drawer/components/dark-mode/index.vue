@@ -4,7 +4,9 @@
     vertical
     size="large">
     <setting-menu label="深色主题">
-      <n-switch>
+      <n-switch
+        :value="theme.darkMode"
+        @update:value="theme.setDarkMode">
         <template #checked>
           <n-icon :component="Sunny" />
         </template>
@@ -14,7 +16,9 @@
       </n-switch>
     </setting-menu>
     <setting-menu label="跟随系统">
-      <n-switch>
+      <n-switch
+        :value="theme.followSystemTheme"
+        @update:value="theme.setFollowSystemTheme">
         <template #checked>
           <n-icon :component="Ban" />
         </template>
@@ -30,6 +34,10 @@
 import { NDivider, NSpace, NSwitch, NIcon } from 'naive-ui'
 import SettingMenu from '../setting-menu/index.vue'
 import { Moon, Sunny, Ban, Browsers } from '@vicons/ionicons5'
+
+import { useThemeStore } from '@/store'
+
+const theme = useThemeStore()
 </script>
 
 <style scoped lang="scss"></style>
