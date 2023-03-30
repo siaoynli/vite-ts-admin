@@ -28,7 +28,8 @@ const themeColorList = [
 
 const defaultThemeSetting: Theme.Setting = {
   darkMode: false,
-  followSystemTheme: true,
+  followSystemTheme: false,
+  //默认themeColorList第一个颜色
   themeColor: themeColorList[0],
   themeColorList,
   otherColor: {

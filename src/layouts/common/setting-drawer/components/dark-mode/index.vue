@@ -6,7 +6,8 @@
     <setting-menu label="深色主题">
       <n-switch
         :value="theme.darkMode"
-        @update:value="theme.setDarkMode">
+        @update:value="theme.setDarkMode"
+        :disabled="theme.followSystemTheme">
         <template #checked>
           <n-icon :component="Sunny" />
         </template>

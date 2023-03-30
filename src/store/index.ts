@@ -11,3 +11,4 @@ export function setupStore(app: App) {
 
 //导出方便直接引入
 export * from './modules';
+export * from './subscribe';

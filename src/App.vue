@@ -15,12 +15,15 @@
 import { NConfigProvider, zhCN, dateZhCN } from 'naive-ui'
 import naiveProvider from '@/components/common/naive-provider.vue'
 
-import { useThemeStore } from '@/store'
+import { useThemeStore, subscribeThemeStore } from '@/store'
+
 import Buttons from '@/views/buttons.vue'
 
 import SettingDrawer from '@/layouts/common/setting-drawer/index.vue'
 
 const theme = useThemeStore()
+
+subscribeThemeStore()
 </script>
 
 <style scoped lang="scss"></style>

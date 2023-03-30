@@ -5,6 +5,8 @@ import { themeSetting } from '@/settings';
 import { addColorAlpha, getColorPalette } from '@/utils';
 
 export function initThemeSettings() {
+
+  //themeColor默认
   const themeColor = themeSetting.themeColor;
   const setting = cloneDeep({ ...themeSetting, themeColor });
   return setting;
@@ -23,6 +25,8 @@ interface ColorAction {
 
 /** 设置主题颜色的各种场景对应的颜色 */
 function getThemeColors(colors: [ColorType, string][]) {
+
+  //场景颜色规则
   const colorActions: ColorAction[] = [
     { scene: '', handler: color => color },
     { scene: 'Suppl', handler: color => color },
@@ -33,8 +37,10 @@ function getThemeColors(colors: [ColorType, string][]) {
 
   const themeColor: ThemeColor = {};
 
+  //设置主题变量 primaryColor,primaryColorHover...
   colors.forEach(color => {
     colorActions.forEach(action => {
+      // primary,#1890ff
       const [colorType, colorValue] = color;
       const colorKey: ColorKey = `${colorType}Color${action.scene}`;
       themeColor[colorKey] = action.handler(colorValue);
