@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-left: 240px">
+  <div :style="{ paddingLeft: theme.sider.width + 'px' }">
     <n-tabs
       type="card"
       closable>
@@ -22,6 +22,9 @@
 
 <script setup lang="ts">
 import { NTabs, NTabPane } from 'naive-ui'
+import { useThemeStore } from '@/store'
+
+const theme = useThemeStore()
 </script>
 
 <style scoped lang="scss"></style>

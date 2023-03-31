@@ -1,6 +1,8 @@
 import {
   themeLayoutModeOptions,
-  themeScrollModeOptions
+  themeScrollModeOptions,
+  themeTabModeOptions,
+  themeHorizontalMenuPositionOptions
 } from '@/constants';
 
 const themeColorList = [
@@ -60,6 +62,32 @@ const defaultThemeSetting: Theme.Setting = {
       visible: true,
       showIcon: true
     }
+  },
+  tab: {
+    visible: true,
+    height: 44,
+    mode: 'chrome',
+    modeList: themeTabModeOptions,
+    isCache: true
+  },
+  sider: {
+    inverted: false,
+    width: 220,
+    collapsedWidth: 64,
+    mixWidth: 80,
+    mixCollapsedWidth: 48,
+    mixChildMenuWidth: 200
+  },
+  menu: {
+    horizontalPosition: 'flex-start',
+    horizontalPositionList: themeHorizontalMenuPositionOptions
+  },
+  footer: {
+    visible: true,
+    fixed: false,
+    right: true,
+    height: 48,
+    inverted: false
   },
 
 }

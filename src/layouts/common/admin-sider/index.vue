@@ -5,10 +5,11 @@
       show-trigger
       position="absolute"
       collapse-mode="width"
-      :collapsed-width="64"
-      :width="240"
+      :collapsed-width="theme.sider.collapsedWidth"
+      :width="theme.sider.width"
       :native-scrollbar="false"
-      class="h-full">
+      class="h-full global-sider"
+      @update-collapsed="e => (e ? theme.setSiderWidth(theme.sider.collapsedWidth) : theme.setSiderWidth(220))">
       <div
         :style="{ height: theme.header.height + 'px', backgroundColor: theme.themeColor }"
         class="text-center text-white text-3xl">
@@ -113,10 +114,7 @@ const menuOptions = [
 </script>
 
 <style scoped lang="scss">
-.admin-sider {
-  position: absolute;
-  height: 100%;
-  left: 0;
-  top: 0;
+.global-sider {
+  box-shadow: 2px 0 8px 0 rgb(29 35 41 / 5%);
 }
 </style>

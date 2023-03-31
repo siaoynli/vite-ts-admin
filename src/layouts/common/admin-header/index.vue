@@ -1,6 +1,6 @@
 <template>
   <div
-    style="padding-left: 240px"
+    :style="{ paddingLeft: theme.sider.width + 'px' }"
     class="pb-2">
     <n-layout-header
       class="global-header flex-y-center h-full"

@@ -47,6 +47,13 @@ export const useThemeStore = defineStore('theme-store', {
     setThemeColor(themeColor: string) {
       this.themeColor = themeColor;
     },
+
+    /** 侧边栏宽度 */
+    setSiderWidth(width: number | null) {
+      if (width) {
+        this.sider.width = width;
+      }
+    },
   }
 
 

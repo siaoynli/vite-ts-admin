@@ -28,6 +28,16 @@ declare namespace Theme {
     showReload: boolean;
     /** 头部样式 */
     header: Header;
+
+    /** 标多页签样式 */
+    tab: Tab;
+    /** 侧边栏样式 */
+    sider: Sider;
+    /** 菜单样式 */
+    menu: Menu;
+    /** 底部样式 */
+    footer: Footer;
+    /** 页面样式 */
   }
 
   /** 布局样式 */
