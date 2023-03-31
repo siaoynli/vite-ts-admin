@@ -1,3 +1,8 @@
+import {
+  themeLayoutModeOptions,
+  themeScrollModeOptions
+} from '@/constants';
+
 const themeColorList = [
   '#1890ff',
   '#409EFF',
@@ -29,6 +34,13 @@ const themeColorList = [
 const defaultThemeSetting: Theme.Setting = {
   darkMode: false,
   followSystemTheme: false,
+  layout: {
+    minWidth: 900,
+    mode: 'vertical',
+    modeList: themeLayoutModeOptions
+  },
+  scrollMode: 'content',
+  scrollModeList: themeScrollModeOptions,
   //默认themeColorList第一个颜色
   themeColor: themeColorList[0],
   themeColorList,
@@ -39,6 +51,16 @@ const defaultThemeSetting: Theme.Setting = {
     error: '#f5222d'
   },
   isCustomizeInfoColor: false,
+  fixedHeaderAndTab: true,
+  showReload: true,
+  header: {
+    inverted: false,
+    height: 56,
+    crumb: {
+      visible: true,
+      showIcon: true
+    }
+  },
 
 }
 

@@ -3,7 +3,8 @@
     :theme="theme.naiveTheme"
     :theme-overrides="theme.naiveThemeOverrides"
     :locale="zhCN"
-    :date-locale="dateZhCN">
+    :date-locale="dateZhCN"
+    class="h-full">
     <naive-provider> </naive-provider>
   </n-config-provider>
 </template>

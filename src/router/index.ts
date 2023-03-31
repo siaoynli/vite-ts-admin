@@ -11,7 +11,7 @@ export const constantRoutes: RouteRecordRaw[] = [
   {
     name: 'root',
     path: '/',
-    component: () => import('@/views/index/index.vue'),
+    component: () => import('@/layouts/basic-layout.vue'),
     meta: {
       title: '首页',
     }
