@@ -32,11 +32,11 @@ const defaultThemeSetting: Theme.Setting = {
   //默认themeColorList第一个颜色
   themeColor: themeColorList[0],
   themeColorList,
-  otherColor: {
+  customColor: {
     info: '#2080f0',
-    success: '#18a058',
-    warning: '#f0a020',
-    error: '#d03050'
+    success: '#52c41a',
+    warning: '#faad14',
+    error: '#f5222d'
   },
   isCustomizeInfoColor: false,
 

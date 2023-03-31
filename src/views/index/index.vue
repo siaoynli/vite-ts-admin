@@ -1,31 +1,30 @@
 <template>
-  <div>
-    <n-space>
-      <n-button @click="handleOpenDialog"> dialog </n-button>
-      <n-button type="tertiary"> notification </n-button>
-      <n-button type="primary"> primary </n-button>
-      <n-button
-        type="info"
-        @click="notify('info')">
-        Info
-      </n-button>
-      <n-button
-        type="success"
-        @click="notify('success')">
-        Success
-      </n-button>
-      <n-button
-        type="warning"
-        @click="notify('warning')">
-        <n-icon><Settings /></n-icon>
-      </n-button>
-      <n-button
-        type="error"
-        @click="logout">
-        logout
-      </n-button>
-    </n-space>
-  </div>
+  <n-space>
+    <n-button @click="handleOpenDialog"> dialog </n-button>
+    <n-button type="tertiary"> notification </n-button>
+    <n-button type="primary"> primary </n-button>
+    <n-button
+      type="info"
+      @click="notify('info')">
+      Info
+    </n-button>
+    <n-button
+      type="success"
+      @click="notify('success')">
+      Success
+    </n-button>
+    <n-button
+      type="warning"
+      @click="notify('warning')">
+      <n-icon><Settings /></n-icon>
+    </n-button>
+    <n-button
+      type="error"
+      @click="logout">
+      logout
+    </n-button>
+  </n-space>
+
   <setting-drawer />
 </template>
 
