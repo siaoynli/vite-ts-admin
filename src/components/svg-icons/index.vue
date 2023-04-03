@@ -16,7 +16,7 @@ export default {
 
 <script setup lang="ts">
 import { computed, CSSProperties } from 'vue'
-import { isNumber } from '@/utils/common/is'
+import { isNumber } from 'lodash-es'
 
 interface Props {
   type?: string
