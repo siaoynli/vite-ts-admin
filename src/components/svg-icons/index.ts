@@ -7,3 +7,5 @@ export default {
     app.component(componentPrefix, import('./index.vue'))
   }
 }
+
+
