@@ -9,9 +9,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Icon: typeof import('./../components/icon/index.vue')['default']
     NaiveProvider: typeof import('./../components/common/naive-provider.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Svg: typeof import('./../components/icon/svg/index.vue')['default']
     SvgIcon: typeof import('../components/svg-icons/index.vue')['default']
     SvgIcons: typeof import('./../components/svg-icons/index.vue')['default']
   }
